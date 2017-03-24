@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_resort_infor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    tools:context="com.example.murove.laisureApp.activities.resort_infor">
+
+    <ImageView
+        android:layout_width="500dp"
+        android:layout_height="350dp"
+        app:srcCompat="@drawable/resort2"
+        android:id="@+id/imgresortinfor1" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Great Zimbabwe"
+        android:ems="10"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/imgresortinfor1"
+        android:id="@+id/txtresortinforname" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Contact +263 735 765 142"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:ems="10"
+        android:layout_below="@+id/txtresortinforname"
+        android:id="@+id/txtresortinforphone1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Activities"
+        android:ems="10"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/txtresortinforphone1"
+        android:id="@+id/txtcarinformodel1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="$120"
+        android:ems="10"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/txtcarinformodel1"
+        android:id="@+id/txtcarinforcost1"/>
+
+</RelativeLayout>

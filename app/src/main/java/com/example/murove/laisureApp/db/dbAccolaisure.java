@@ -23,7 +23,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
     public static final String DATABASE_NAME ="my_dbAccolaisure";
 
     //Database Version
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 4;
 
     //Database Table
 
@@ -37,17 +37,17 @@ public class dbAccolaisure extends SQLiteOpenHelper{
 
     // fields for the Accommodation table
 
-    public static final String KEY_ID = "id";
+    public static final String KEY_ACCOMMODATION_ID = "id";
     public static final String KEY_ACCOMMODATION_NAME = "accommodation_name";
     public static final String KEY_PHONENUMBERS = "phonenumber";
-    public static final String KEY_STARS_RATING = "stars_rating";
-   // public static final String KEY_CITY = "city";
-   public static final String KEY_PACKAGES = "packages";
-    public static final String KEY_COST = "cost";
+   // public static final String KEY_STARS_RATING = "stars_rating";
+   //public static final String KEY_CITY= "city";
+   //public static final String KEY_PACKAGES = "packages";
+    private static final String KEY_COST = "cost";
 
     // fields for the Car Hiring table
 
-   // public static final String KEY_ID = "id";
+    public static final String KEY_CAR_ID = "id";
     public static final String KEY_COMPANY_NAME = "company_name";
     public static final String KEY_ADDRESS = "address";
     public static final String KEY_CAR_MODEL = "car_model";
@@ -60,7 +60,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
 
     // fields for Events table
 
-   // public static final String KEY_ID = "id";
+    public static final String KEY_EVENTS_ID = "id";
     public static final String KEY_ARTIST_NAME = "artist_name";
   //  public static final String KEY_PHONENUMBERS = "phonenumber";
     public static final String KEY_VENUE = "venue";
@@ -71,7 +71,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
 
     // fields for Resorts table
 
-   // public static final String KEY_ID = "id";
+   public static final String KEY_RESORTS_ID = "id";
     public static final String KEY_RESORT_NAME = "resorts_name";
     //public static final String KEY_PHONENUMBERS = "phonenumber";
     public static final String KEY_BOOKING_HOUSES = "booking_houses";
@@ -95,18 +95,18 @@ public class dbAccolaisure extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
 
         String CREATE_TABLE_ACCOMMODATION = "CREATE TABLE " + ACCOMMODATION_TABLE + "("
-                + KEY_ID +   " INTEGER PRIMARY KEY, "
+                + KEY_ACCOMMODATION_ID  +   " INTEGER PRIMARY KEY, "
                 + KEY_ACCOMMODATION_NAME + "TEXT, "
                 + KEY_PHONENUMBERS + "TEXT, "
-                + KEY_STARS_RATING + "TEXT, "
+               // + KEY_STARS_RATING + "TEXT, "
                 + KEY_CITY + "TEXT, "
-                + KEY_COST + "TEXT, "
-                + KEY_PACKAGES + "TEXT, "+")";
+                + KEY_COST + "TEXT, "+")";
+              //  + KEY_PACKAGES + "TEXT, "+")";
 
            db.execSQL(CREATE_TABLE_ACCOMMODATION);
 
         String CREATE_TABLE_CAR_HIRING = "CREATE TABLE " + CAR_HIRING_TABLE + "("
-                + KEY_ID +   " INTEGER PRIMARY KEY, "
+                + KEY_CAR_ID +   " INTEGER PRIMARY KEY, "
                 + KEY_COMPANY_NAME + "TEXT, "
                 + KEY_PHONENUMBERS + "TEXT, "
                 + KEY_ADDRESS + "TEXT, "
@@ -120,7 +120,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
 
 
             String CREATE_TABLE_EVENTS = "CREATE TABLE " + EVENTS_TABLE + "("
-                    + KEY_ID +   " INTEGER PRIMARY KEY, "
+                    + KEY_EVENTS_ID +   " INTEGER PRIMARY KEY, "
                     + KEY_ARTIST_NAME + "TEXT, "
                     + KEY_PHONENUMBERS + "TEXT, "
                     + KEY_VENUE + "TEXT, "
@@ -133,7 +133,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
 
 
             String CREATE_TABLE_RESORTS = "CREATE TABLE " + RESORTS_TABLE + "("
-                    + KEY_ID +   " INTEGER PRIMARY KEY, "
+                    + KEY_RESORTS_ID +   " INTEGER PRIMARY KEY, "
                     + KEY_RESORT_NAME + "TEXT, "
                     + KEY_PHONENUMBERS + "TEXT, "
                     + KEY_BOOKING_HOUSES + "TEXT, "
@@ -181,7 +181,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
        // values.put(KEY_STARS_RATING, stars);
         values.put(KEY_CITY, city);
         values.put(KEY_COST, cost);
-        values.put(KEY_PACKAGES, packages);
+      //  values.put(KEY_PACKAGES, packages);
 
         // inserting the row into the dbase
         long id = dbase.insert(ACCOMMODATION_TABLE, null, values);
@@ -275,13 +275,13 @@ public class dbAccolaisure extends SQLiteOpenHelper{
                    HashMap<String, String> map = new HashMap<>();
                    //now calling the first value under column id
 
-                   map.put(KEY_ID, cursor.getString(0));
+                   map.put(KEY_ACCOMMODATION_ID , cursor.getString(0));
                    map.put(KEY_ACCOMMODATION_NAME, cursor.getString(1));
                    map.put(KEY_PHONENUMBERS, cursor.getString(2));
-                   map.put(KEY_STARS_RATING, cursor.getString(3));
+                 //  map.put(KEY_STARS_RATING, cursor.getString(3));
                    map.put(KEY_CITY, cursor.getString(4));
                    map.put(KEY_COST, cursor.getString(5));
-                   map.put(KEY_PACKAGES, cursor.getString(6));
+                //   map.put(KEY_PACKAGES, cursor.getString(6));
 
 
                    accommodationList.add(map);
@@ -310,7 +310,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
                 HashMap<String, String> map = new HashMap<>();
                 //now calling the first value under column id
 
-                map.put(KEY_ID, cursor.getString(0));
+                map.put(KEY_RESORTS_ID, cursor.getString(0));
                 map.put(KEY_RESORT_NAME, cursor.getString(1));
                 map.put(KEY_PHONENUMBERS, cursor.getString(2));
                 map.put(KEY_BOOKING_HOUSES, cursor.getString(3));
@@ -346,7 +346,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
                 HashMap<String, String> map = new HashMap<>();
                 //now calling the first value under column id
 
-                map.put(KEY_ID, cursor.getString(0));
+                map.put(KEY_EVENTS_ID, cursor.getString(0));
                 map.put(KEY_ARTIST_NAME, cursor.getString(1));
                 map.put(KEY_PHONENUMBERS, cursor.getString(2));
                 map.put(KEY_VENUE, cursor.getString(3));
@@ -381,7 +381,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
                 HashMap<String, String> map = new HashMap<>();
                 //now calling the first value under column id
 
-                map.put(KEY_ID, cursor.getString(0));
+                map.put(KEY_CAR_ID, cursor.getString(0));
                 map.put(KEY_COMPANY_NAME, cursor.getString(1));
                 map.put(KEY_PHONENUMBERS, cursor.getString(2));
                 map.put(KEY_CAR_MODEL, cursor.getString(3));
@@ -406,7 +406,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
 
             public void removeAccomodation(long _id){
                 SQLiteDatabase db = getWritableDatabase();
-                db.delete(ACCOMMODATION_TABLE, KEY_ID + " = " + _id, null);
+                db.delete(ACCOMMODATION_TABLE, KEY_ACCOMMODATION_ID + " = " + _id, null);
 
                 // stamnt of closing the database
                 db.close();
@@ -415,7 +415,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
     // method to delete a record from the Resorts Database
     public void removeResort(long _id){
         SQLiteDatabase db = getWritableDatabase();
-        db.delete(RESORTS_TABLE, KEY_ID + " = " + _id, null);
+        db.delete(RESORTS_TABLE, KEY_RESORTS_ID + " = " + _id, null);
 
 
         // stamnt of closing the database
@@ -426,7 +426,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
 
     public void removeCar(long _id){
         SQLiteDatabase db = getWritableDatabase();
-        db.delete(CAR_HIRING_TABLE, KEY_ID + " = " + _id, null);
+        db.delete(CAR_HIRING_TABLE, KEY_CAR_ID + " = " + _id, null);
 
 
         // stamnt of closing the database
@@ -438,7 +438,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
 
     public void removeEvent(long _id){
         SQLiteDatabase db = getWritableDatabase();
-        db.delete(EVENTS_TABLE, KEY_ID + " = " + _id, null);
+        db.delete(EVENTS_TABLE, KEY_EVENTS_ID + " = " + _id, null);
 
 
         // stamnt of closing the database
@@ -465,13 +465,13 @@ public class dbAccolaisure extends SQLiteOpenHelper{
                 HashMap<String, String> map = new HashMap<>();
                 //now calling the first value under column id
 
-                map.put(KEY_ID, cursor.getString(0));
+                map.put(KEY_ACCOMMODATION_ID , cursor.getString(0));
                 map.put(KEY_ACCOMMODATION_NAME, cursor.getString(1));
                 map.put(KEY_PHONENUMBERS, cursor.getString(2));
-                map.put(KEY_STARS_RATING, cursor.getString(3));
+               // map.put(KEY_STARS_RATING, cursor.getString(3));
                 map.put(KEY_CITY, cursor.getString(4));
                 map.put(KEY_COST, cursor.getString(5));
-                map.put(KEY_PACKAGES, cursor.getString(6));
+               // map.put(KEY_PACKAGES, cursor.getString(6));
 
 
                 accommodationList.add(map);
@@ -504,7 +504,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
                 HashMap<String, String> map = new HashMap<>();
                 //now calling the first value under column id
 
-                map.put(KEY_ID, cursor.getString(0));
+                map.put(KEY_CAR_ID, cursor.getString(0));
                 map.put(KEY_COMPANY_NAME, cursor.getString(1));
                 map.put(KEY_PHONENUMBERS, cursor.getString(2));
                 map.put(KEY_CAR_MODEL, cursor.getString(3));
@@ -542,7 +542,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
                 HashMap<String, String> map = new HashMap<>();
                 //now calling the first value under column id
 
-                map.put(KEY_ID, cursor.getString(0));
+                map.put(KEY_RESORTS_ID, cursor.getString(0));
                 map.put(KEY_RESORT_NAME, cursor.getString(1));
                 map.put(KEY_PHONENUMBERS, cursor.getString(2));
                 map.put(KEY_BOOKING_HOUSES, cursor.getString(3));
@@ -571,7 +571,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
                 KEY_ARTIST_NAME + "LIKE " + searchParam + "% ";
         SQLiteDatabase db = this.getReadableDatabase();
 
-        // Cursor allows us to access different records by using position the table
+        // Cursor allows us to access different records by using position the table databasejlbjl
         Cursor cursor = db.rawQuery(selectQuery, null);
         if(cursor.moveToFirst()){
             // move all results to our Hashmap
@@ -579,7 +579,7 @@ public class dbAccolaisure extends SQLiteOpenHelper{
                 HashMap<String, String> map = new HashMap<>();
                 //now calling the first value under column id
 
-                map.put(KEY_ID, cursor.getString(0));
+                map.put(KEY_EVENTS_ID, cursor.getString(0));
                 map.put(KEY_ARTIST_NAME, cursor.getString(1));
                 map.put(KEY_PHONENUMBERS, cursor.getString(2));
                 map.put(KEY_VENUE, cursor.getString(3));

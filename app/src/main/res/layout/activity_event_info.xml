@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_event_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    tools:context="com.example.murove.laisureApp.activities.event_info">
+
+    <ImageView
+        android:layout_width="500dp"
+        android:layout_height="350dp"
+        app:srcCompat="@drawable/tuku1"
+        android:id="@+id/imgeventinfor1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Artist:       Oliver Mtukudzi"
+        android:ems="10"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/imgeventinfor1"
+        android:id="@+id/txtenentinfor1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Contact:   +263735 765 142"
+        android:ems="10"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/txtenentinfor1"
+        android:layout_alignParentStart="true"
+        android:id="@+id/txteventinforphone1"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Venue:     HICC"
+        android:ems="10"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/txteventinforphone1"
+        android:id="@+id/txteventinforvenue1" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Date:        25-03-2017"
+        android:ems="10"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/txteventinforvenue1"
+        android:id="@+id/txteventinfordate1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="PRICE      $20"
+        android:ems="10"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/txteventinfordate1"
+        android:id="@+id/txteventinforcost1" />
+</RelativeLayout>
